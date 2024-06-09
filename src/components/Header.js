@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 const Header = () => {
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const user = useSelector((store) => store.user);
+
   const [toggleDropdown, setToggleDropdown] = useState(false);
+
   const handleSingOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
-
         // Sign-out successful.
       })
       .catch((error) => {
@@ -19,6 +23,30 @@ const Header = () => {
         // An error happened.
       });
   };
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        // User is signed in
+        console.log("User is signed in");
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        console.log("user added");
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+        // User is signed out
+      }
+    });
+  }, []);
+
   useEffect(() => {
     console.log("Dropdown state changed:", toggleDropdown);
   }, [toggleDropdown]);

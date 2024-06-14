@@ -92,6 +92,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  - Register TMDB API & create an app and get access token 
  - Get data from TMDB now playing movies list API
  - Fetch from database
+ - Custom Hook for Now Playing Movies
+ - Create movieSlice
+ - Update Store with movie Data
+ - Completed Main Container
+ - Fetch Data for main video
+ - Update movie store with trailer
+ - embedd trailer video in component
+ - tailwind classes and font awesome to add icons
 
 ###  Features
  - Login/Sign Up

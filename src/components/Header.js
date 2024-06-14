@@ -64,7 +64,6 @@ const Header = () => {
         <div
           className="flex justify-center"
           onMouseLeave={() => {
-            console.log("User icon unhovered");
             setToggleDropdown(false);
           }}
         >

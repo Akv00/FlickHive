@@ -100,6 +100,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  - Update movie store with trailer
  - embedd trailer video in component
  - tailwind classes and font awesome to add icons
+ - Build Movie List
+ - Build Movie Cards
+ - Created Custom Hooks
 
 ###  Features
  - Login/Sign Up

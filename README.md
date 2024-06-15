@@ -103,6 +103,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  - Build Movie List
  - Build Movie Cards
  - Created Custom Hooks
+ - GPT search Bar
+ - Gpt search page 
+ - Multi language support
+ - 
 
 ###  Features
  - Login/Sign Up

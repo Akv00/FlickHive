@@ -4,14 +4,16 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
-const Header = () => {
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
+const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const user = useSelector((store) => store.user);
-
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const handleSingOut = () => {
@@ -49,17 +51,21 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   useEffect(() => {
     console.log("Dropdown state changed:", toggleDropdown);
   }, [toggleDropdown]);
 
   return (
     <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img
-        className="w-44 cursor-pointer"
-        src={LOGO}
-        alt="logo"
-      />
+      <img className="w-44 cursor-pointer" src={LOGO} alt="logo" />
       {user && (
         <div
           className="flex justify-center"
@@ -67,6 +73,22 @@ const Header = () => {
             setToggleDropdown(false);
           }}
         >
+          { showGptSearch && (
+            <select
+              className="py-2 mr-5 mb-5 px-4 m-2 mx-4 bg-gray-900 text-white rounded-lg"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option value={lang.identifier}>{lang.name}</option>
+              ))}
+            </select>
+          )}
+          <button
+            className="py-2 mr-10 mb-5 px-4 m-2 mx-4 bg-red-800 text-white font-bold rounded-lg"
+            onClick={handleGptSearchClick}
+          >
+            {showGptSearch ? "Home" : "GPT Search"}
+          </button>
           <img
             className="w-12 h-12 p-2 cursor-pointer"
             alt="usericon"

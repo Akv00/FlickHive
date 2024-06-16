@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# FlickHive
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is hosted at (https://flickhive.netlify.app/)
 
 ## Available Scripts
 

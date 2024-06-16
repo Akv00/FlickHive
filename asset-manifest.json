@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FlickHive/static/css/main.9456666d.css",
+    "main.js": "/FlickHive/static/js/main.71d8d137.js",
+    "static/js/592.5f1452f2.chunk.js": "/FlickHive/static/js/592.5f1452f2.chunk.js",
+    "index.html": "/FlickHive/index.html",
+    "main.9456666d.css.map": "/FlickHive/static/css/main.9456666d.css.map",
+    "main.71d8d137.js.map": "/FlickHive/static/js/main.71d8d137.js.map",
+    "592.5f1452f2.chunk.js.map": "/FlickHive/static/js/592.5f1452f2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9456666d.css",
+    "static/js/main.71d8d137.js"
+  ]
+}

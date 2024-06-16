@@ -106,7 +106,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  - GPT search Bar
  - Gpt search page 
  - Multi language support
- - 
 
 ###  Features
  - Login/Sign Up
